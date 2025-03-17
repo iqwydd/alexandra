@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres saber algo?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #mensaje {
+            font-size: 24px;
+            margin-top: 20px;
+            display: none;
+        }
+        #pregunta {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        img {
+            width: 300px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="pregunta">¿Quieres saber algo?</h1>
+    <button onclick="si()">Sí</button>
+    <button id="noBtn" onclick="no()">No</button>
+    <p id="mensaje"></p>
+    <img id="gato" src="https://i.postimg.cc/Wh2y5JLJ/skibidi.avif" alt="Gato divertido">
+
+    <script>
+        let contadorNo = 0;
+
+        function si() {
+            document.getElementById("mensaje").innerText = "Eres muy skibidi...";
+            document.getElementById("mensaje").style.display = "block";
+            document.getElementById("gato").style.display = "block";
+        }
+
+        function no() {
+            let pregunta = document.getElementById("pregunta");
+            let btnNo = document.getElementById("noBtn");
+
+            if (contadorNo === 0) {
+                pregunta.innerText = "Fea, escúchame";
+                btnNo.innerText = "No";
+                btnNo.style.backgroundColor = "lightcoral";
+            } else if (contadorNo === 1) {
+                pregunta.innerText = "Me da igual, me vas a escuchar";
+            } else {
+                btnNo.style.display = "none"; // Desaparece el botón de "No"
+            }
+
+            contadorNo++;
+        }
+    </script>
+</body>
+</html>
